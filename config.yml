@@ -1,0 +1,9 @@
+development:
+  password: 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
+  theme_id: '127173394619'
+  store: hello-v11.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - /\.(txt|gif|bat)$/
+    - '*.liquid___jb_tmp___'
+    - '*.liquid___jb_old___'

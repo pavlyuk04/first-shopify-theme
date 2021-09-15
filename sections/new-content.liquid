@@ -1,0 +1,30 @@
+
+<div id="new-container">
+    <div class="picture-container"></div>
+    <div class="text-container">
+        <h3 id="title">Using slipcovers, as a eazy as putting on socks</h3>
+        <p id="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem labore hic laboriosam cumque!</p>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "New content",
+    "id": "new-container",
+    "class": "new-container",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+        },
+        {
+            "type": "text",
+            "id": "subtitle"
+        }
+    ]
+}
+{% endschema %}
