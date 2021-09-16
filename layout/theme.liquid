@@ -189,7 +189,10 @@
       scripts.parentNode.insertBefore(polyfill, scripts);
     }
   </script>
-
+  <!-- <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick-theme.css"/> -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css"/>
   {{ content_for_header }}
 </head>
 
@@ -201,9 +204,10 @@
     {% include 'cart-popup' %}
   {%- endif -%}
 
+ 
+
   {% section 'header' %}
 
-  {% section 'new-content' %}
 
   <div class="page-container drawer-page-content" id="PageContainer">
 
@@ -231,5 +235,8 @@
     <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </body>
 </html>

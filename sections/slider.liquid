@@ -1,0 +1,77 @@
+<section class="slider">
+    {% for block in section.blocks %}
+        <div class="slider__unit">
+            <img src="{{block.settings.product_img | img_url: 'master'}}" alt="{{block.settings.product_img.alt}}">
+            <h3 class="unit__text" id="product_name">{{block.settings.product_name}}</h3>
+            <p class="unit__price" id="product_price">{{block.settings.product_price}}</p>
+        </div>
+    {% endfor %}
+</section>
+
+<script type="text/javascript">
+    window.onload = () => {
+    $(document).ready(function(){
+        $('.slider').slick({
+        dots: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        })
+    })
+    }
+</script>
+
+<style>
+    .slider{
+        max-width: 1400px;
+        width: 100%;
+        padding: 100px 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+    .slider__unit{
+        max-width: 300px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Slide",
+    "tag": "section",
+    "max_blocks": 5,
+    "blocks": [
+        {
+            "name": "Slide_unit",
+            "type": "slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "product_img",
+                    "label": "picture"
+                },
+                {
+                    "type": "text",
+                    "id": "product_name",
+                    "label": "Product name",
+                    "default": "Enter the product name"
+                },
+                {
+                    "type": "richtext",
+                    "id": "product_price",
+                    "label": "Price",
+                    "default": "<p>Enter the price</p>"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name":"Product slider"
+        }
+    ]
+
+}
+{% endschema %}
