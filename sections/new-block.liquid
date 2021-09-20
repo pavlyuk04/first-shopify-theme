@@ -1,0 +1,85 @@
+<section {% if section.settings.image_side == 'left' %} class="new-section" {% else %} class="new-section reverse" {% endif %}  >
+    <div class="new-section__img"><img src="{{section.settings.img_picker | img_url: 'master'}}" alt="{{section.settings.img_picker.alt}}" id="img_picker"></div>
+    <div class="new-section__text">
+        <h3 id="headline">Lorem ipsum dolor <br> sit amet.</h3>
+        <p id="text_p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, debitis.</p>
+    </div>
+</section>
+
+<style>
+    .reverse{
+        flex-direction: row-reverse;
+    }
+    .new-section{
+        margin: 0 auto;
+        height: auto;
+        max-width: 1400px;
+        width: 100%;
+        padding: 0;
+        display: flex;
+    }
+    .new-section__img{
+        max-width: 770px;
+        width: 100%;
+    }
+    .new-section__text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 660px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 50px;
+    }
+    p{
+        max-width: 426px;
+        width: 100%;
+    }
+</style>
+
+{% schema %}
+{
+    "name": "New section",
+    "class": "new_section",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "label": "Image",
+            "id": "img_picker"
+        },
+        {
+            "type": "text",
+            "label": "Headline",
+            "id": "headline"
+        },
+        {
+            "type": "richtext",
+            "label": "text",
+            "id": "text_p"
+        },
+        {
+            "type": "select",
+            "label": "image side",
+            "id": "image_side",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"  
+                },
+                {
+                    "value":"right",
+                    "label": "Right"
+                }
+            ],
+            "default": "left"
+        }
+    ],
+    "presets": [
+        {
+            "name":"Hi"
+        }
+    ]
+}
+{% endschema %}
