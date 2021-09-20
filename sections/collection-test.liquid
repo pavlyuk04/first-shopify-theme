@@ -1,0 +1,42 @@
+
+<section>
+    <div>
+        <h3>{{section.settings.title}}</h3>
+        <p>{{section.settings.coll.title}}</p>
+        {% for product in section.settings.coll.products %}
+            <div>
+                <p>{{product.title}}</p>
+                {% for image in product.images %}
+                    <img src="{{image.src | product_img_url: 'original'}}" alt="{{image.compact_url.alt}}">
+                {% endfor %}
+                <p>{{product.price | money}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "collection test",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Titel",
+            "default": "Enter the name for collection"
+        },
+        {
+            "type": "collection",
+            "id": "coll",
+            "label": "coll"
+        }
+
+    ],
+    "presets": [
+        {
+            "name":"test collection"
+        }
+    ]
+    
+}
+{% endschema %}

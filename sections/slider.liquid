@@ -1,9 +1,21 @@
 <section class="slider">
     {% for block in section.blocks %}
         <div class="slider__unit">
-            <img src="{{block.settings.product_img | img_url: 'master'}}" alt="{{block.settings.product_img.alt}}">
-            <h3 class="unit__text" id="product_name">{{block.settings.product_name}}</h3>
-            <p class="unit__price" id="product_price">{{block.settings.product_price}}</p>
+            <img src="{{block.settings.product_select | img_url: 'master'}}" alt="{{block.settings.product_select.alt}}">
+            <h3 class="unit__text">
+                {{ block.settings.product_select.title | default: "Prod title"}}
+            </h3>
+            <p>
+                {{block.settings.product_select.content}}
+            </p>
+            <p class="unit__price">
+                {{ block.settings.product_select.price  | money_with_currency}}
+            </p>
+            <button type="submit" name="add" disabled class="btn product-form__cart-submit" data-add-to-cart>
+                <span data-add-to-cart-text>
+                    {{ 'products.product.sold_out' | t }}
+                </span>
+            </button>
         </div>
     {% endfor %}
 </section>
@@ -16,6 +28,7 @@
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
+        infinite: false
         })
     })
     }
@@ -31,8 +44,12 @@
         justify-content: space-around;
     }
     .slider__unit{
+        margin: 0 auto;
         max-width: 300px;
         width: 100%;
+        display: flex;
+    }
+    .unit__text{
         text-align: center;
     }
 </style>
@@ -48,22 +65,11 @@
             "type": "slide",
             "settings": [
                 {
-                    "type": "image_picker",
-                    "id": "product_img",
-                    "label": "picture"
-                },
-                {
-                    "type": "text",
-                    "id": "product_name",
-                    "label": "Product name",
-                    "default": "Enter the product name"
-                },
-                {
-                    "type": "richtext",
-                    "id": "product_price",
-                    "label": "Price",
-                    "default": "<p>Enter the price</p>"
+                    "type": "product",
+                    "label": "Product",
+                    "id": "product_select"
                 }
+
             ]
         }
     ],

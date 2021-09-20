@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Futura Medium';
+    src: url('futuramedium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura Black';
+    src: url('futurablack.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+.info{
+    max-width: 1440px;
+    width: 100%;
+    padding: 100px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info-block{
+    padding: 25px 0;
+    max-width: 1090px;
+    width: 100%;
+}
+.info-block__title{
+    margin: 0 0 20px 0;
+    font-size: 32px;
+    font-family:'Futura Black'; 
+}
+.info-block__content{
+    font-family: 'Futura Medium';
+    font-size: 24px;
+    max-width: 1090px;
+    width: 100%;
+}

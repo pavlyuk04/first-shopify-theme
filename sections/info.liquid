@@ -1,0 +1,38 @@
+<section class="info">
+    {% for block in section.blocks %}
+        <div class="info-block">
+            <h3 class="info-block__title">{{block.settings.title-text}}</h3>
+            <p class="info-block__content">{{block.settings.content-text}}</p>
+        </div>
+    {% endfor %}
+</section>
+
+{% schema %}
+{
+    "name": "Info",
+    "tag": "section",
+    "blocks": [
+        {
+            "name": "Info block",
+            "type": "slide",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title-text",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content-text",
+                    "label": "Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name":"Info section"
+        }
+    ]
+}
+{% endschema %}
